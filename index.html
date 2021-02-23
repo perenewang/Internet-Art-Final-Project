@@ -1,3 +1,61 @@
 <!DOCTYPE html>
-<h1>Internet Art Final Project</h1>
-<h2>by Perene</h2>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body {
+        animation-name: rainbow;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+      }
+
+      h1 {
+        animation-name: word-rainbow;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+
+      p {
+        animation-name: word-rainbow;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+      
+      @keyframes rainbow {
+        0% {
+          background-color: purple;
+        }
+
+        25% {
+          background-color: blueviolet;
+        }
+
+        50% {
+          background-color: blue;
+        }
+
+        100% {
+          background-color: darkmagenta;
+        }
+      }
+      
+      @keyframes word-rainbow {
+        0% {
+          color: black;
+        }
+
+        100% {
+          color: white;
+        }
+      }
+    </style>
+  </head>
+  
+  <body>
+    <section>
+      <h1> Hello World!</h1>
+      <p> By Perene </p>
+    </section>
+  </body>
+  
+</html>
