@@ -3,24 +3,34 @@
   <head>
     <meta charset="utf-8">
     <style>
-      body {
+      label {
         animation-name: rainbow;
-        animation-duration: 5s;
+        animation-duration: 2s;
         animation-iteration-count: infinite;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        transition: all .5s;
       }
 
-      h1 {
-        animation-name: word-rainbow;
+      input:checked+label {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        margin-top: 0;
+        left: 0;
+        margin-left: 0;
+        border-radius: 0;
+        animation-name: rainbow2;
         animation-duration: 2s;
         animation-iteration-count: infinite;
       }
 
-      p {
-        animation-name: word-rainbow;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
+      input {
+        visibility: hidden;
       }
-      
+
       @keyframes rainbow {
         0% {
           background-color: purple;
@@ -38,24 +48,84 @@
           background-color: darkmagenta;
         }
       }
-      
-      @keyframes word-rainbow {
+
+      @keyframes rainbow2 {
         0% {
-          color: black;
+          background-color: red;
+        }
+
+        25% {
+          background-color: yellow;
+        }
+
+        50% {
+          background-color: blue;
         }
 
         100% {
-          color: white;
+          background-color: green;
         }
+      }
+
+      @keyframes grow {
+        0% {
+          width: 50px;
+          height: 50px;
+        }
+
+        100% {
+          width: 100px;
+          height: 100px;
+        }
+      }
+
+      .circle {
+        border-radius: 50%;
+        animation-name: grow;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        background-color: black;
+        margin: auto;
+      }
+
+      .box {
+        padding: 30px;
+        opacity: 75%;
+      }
+      
+      #table {
+        
       }
     </style>
   </head>
-  
+
   <body>
-    <section>
-      <h1> Hello World!</h1>
-      <p> By Perene </p>
-    </section>
+    <div>
+    <div class="box">
+      <input id="circle1" type="checkbox">
+      <label for="circle1"></label>
+    </div>
+    <div class="box">
+      <input id="circle2" type="checkbox">
+      <label for="circle2"></label>
+    </div>
+    <div class="box">
+      <input id="circle3" type="checkbox">
+      <label for="circle3"></label>
+    </div>
+    <div class="box">
+      <input id="circle4" type="checkbox">
+      <label for="circle4"></label>
+    </div>
+    <div class="box">
+      <input id="circle5" type="checkbox">
+      <label for="circle5"></label>
+    </div>
+</div>
+
+    <script>
+
+    </script>
   </body>
-  
+
 </html>
