@@ -95,26 +95,20 @@
         <input id="circle1" type="checkbox">
         <label for="circle1"></label>
       </div>
-      <div class="box">
-        <input id="circle2" type="checkbox">
-        <label for="circle2"></label>
-      </div>
-      <div class="box">
-        <input id="circle3" type="checkbox">
-        <label for="circle3"></label>
-      </div>
-      <div class="box">
-        <input id="circle4" type="checkbox">
-        <label for="circle4"></label>
-      </div>
-      <div class="box">
-        <input id="circle5" type="checkbox">
-        <label for="circle5"></label>
-      </div>
     </div>
 
     <script>
       //declarative approach
+      /* have function to loop making the circle
+      but it only goes in a column, i want to create 
+      it so that it'll repeat the columns over and over.*/
+      /* how to know how many circles to make to fill the
+      screen instead of using the hardcoded number in 
+      the loop?*/
+      /* with the loop and function, when i click it 
+      expands but only the very top circle, how can
+      i make it so that the circle you click on is the
+      the that expands? */
       function createCircle() 
       {
         const circle = document.createElement('div')
@@ -130,7 +124,7 @@
         document.body.appendChild(circle)
       }
       createCircle()
-      for (let i = 0; i < 100; i++) 
+      for (let i = 0; i < 5; i++) 
       {
         createCircle()
       }
