@@ -17,6 +17,7 @@
         height: 100px;
         position: absolute;
         transition: all .5s;
+        cursor: pointer;
       }
 
       input:checked+label {
@@ -83,24 +84,25 @@
       .box {
         padding: 30px;
         opacity: 75%;
-        cursor: pointer;
+        display: inline;
+      }
+      
+      .rows {
+        display: block;
       }
       
     </style>
   </head>
 
   <body>
-    <div>
       <div class="box">
         <input id="circle1" type="checkbox">
         <label for="circle1"></label>
-      </div>
-    </div>
 
     <script>
       //declarative approach
       /* have function to loop making the circle
-      but it only goes in a column, i want to create 
+      but it only goes in a row, i want to create 
       it so that it'll repeat the columns over and over.*/
       /* how to know how many circles to make to fill the
       screen instead of using the hardcoded number in 
@@ -117,17 +119,28 @@
             <input id="circle1" type="checkbox">
             <label for="circle1"></label>
         `
-        const x = Math.random() * window.innerWidth
+        /*const x = Math.random() * window.innerWidth
         const y = Math.random() * window.innerHeight
         circle.style.left = `${x}px`
-        circle.style.top = `${y}px`
+        circle.style.top = `${y}px`*/
         document.body.appendChild(circle)
       }
-      createCircle()
+      /*function createPage()
+      {
+        const row = document.createElement('div')
+        row.className = 'rows'
+        row = 
+          for (let i = 0; i < 5; i++) 
+          {
+            createCircle()
+          }
+        document.body.appendChild(row)
+      }*/
       for (let i = 0; i < 5; i++) 
       {
         createCircle()
       }
+      
       /* make new function that calls createCircle()
       with a new div element that is side by side 
       and loop that new function */
