@@ -6,6 +6,7 @@
       body {
         background: black;
       }
+
       label {
         animation-name: rainbow;
         animation-duration: 2s;
@@ -70,64 +71,68 @@
         }
       }
 
-      @keyframes grow {
-        0% {
-          width: 50px;
-          height: 50px;
-        }
-
-        100% {
-          width: 100px;
-          height: 100px;
-        }
-      }
-
-      .circle {
+      /*.circle {
         border-radius: 50%;
-        animation-name: grow;
+        animation-name: rainbow;
         animation-duration: 2s;
         animation-iteration-count: infinite;
-        background-color: black;
         margin: auto;
-      }
+      }*/
 
       .box {
         padding: 30px;
         opacity: 75%;
+        cursor: pointer;
       }
-      
-      #table {
-        
-      }
+
     </style>
   </head>
 
   <body>
     <div>
-    <div class="box">
-      <input id="circle1" type="checkbox">
-      <label for="circle1"></label>
+      <div class="box">
+        <input id="circle1" type="checkbox">
+        <label for="circle1"></label>
+      </div>
+      <div class="box">
+        <input id="circle2" type="checkbox">
+        <label for="circle2"></label>
+      </div>
+      <div class="box">
+        <input id="circle3" type="checkbox">
+        <label for="circle3"></label>
+      </div>
+      <div class="box">
+        <input id="circle4" type="checkbox">
+        <label for="circle4"></label>
+      </div>
+      <div class="box">
+        <input id="circle5" type="checkbox">
+        <label for="circle5"></label>
+      </div>
     </div>
-    <div class="box">
-      <input id="circle2" type="checkbox">
-      <label for="circle2"></label>
-    </div>
-    <div class="box">
-      <input id="circle3" type="checkbox">
-      <label for="circle3"></label>
-    </div>
-    <div class="box">
-      <input id="circle4" type="checkbox">
-      <label for="circle4"></label>
-    </div>
-    <div class="box">
-      <input id="circle5" type="checkbox">
-      <label for="circle5"></label>
-    </div>
-</div>
 
     <script>
-
+      //declarative approach
+      function createCircle() 
+      {
+        const circle = document.createElement('div')
+        circle.className = 'box'
+        circle.innerHTML = `
+            <input id="circle1" type="checkbox">
+            <label for="circle1"></label>
+        `
+        const x = Math.random() * window.innerWidth
+        const y = Math.random() * window.innerHeight
+        circle.style.left = `${x}px`
+        circle.style.top = `${y}px`
+        document.body.appendChild(circle)
+      }
+      createCircle()
+      for (let i = 0; i < 100; i++) 
+      {
+        createCircle()
+      }
     </script>
   </body>
 
