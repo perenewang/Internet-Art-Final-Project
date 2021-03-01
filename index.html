@@ -54,6 +54,24 @@
           background-color: magenta;
         }
       }
+      
+      @keyframes opposite-rainbow {
+        0% {
+          background-color: magenta;
+        }
+
+        25% {
+          background-color: blue;
+        }
+
+        50% {
+          background-color: blueviolet;
+        }
+
+        100% {
+          background-color: purple;
+        }
+      }
 
       @keyframes rainbow2 {
         0% {
@@ -72,14 +90,6 @@
           background-color: fuchsia;
         }
       }
-
-      /*.circle {
-        border-radius: 50%;
-        animation-name: rainbow;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
-        margin: auto;
-      }*/
 
       .box {
         padding: 30px;
@@ -111,6 +121,8 @@
       expands but only the very top circle, how can
       i make it so that the circle you click on is the
       the that expands? */
+      /* want to make it so that every other circle is
+      opposite rainbow animation */
       function createCircle() 
       {
         const circle = document.createElement('div')
