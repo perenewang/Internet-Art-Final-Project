@@ -9,9 +9,6 @@
       }
 
       label {
-        animation-name: rainbow;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
         border-radius: 50%;
         width: 100px;
         height: 100px;
@@ -54,7 +51,7 @@
           background-color: magenta;
         }
       }
-      
+
       @keyframes opposite-rainbow {
         0% {
           background-color: magenta;
@@ -96,66 +93,88 @@
         opacity: 75%;
         display: inline;
       }
+
+      .row {
+        display: inline;
+        padding: 10px;
+      }
       
-      .rows {
+      #circle {
+        animation-name: rainbow;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+      
+      #opposite-circle {
+        animation-name: opposite-rainbow;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+      
+      .screen {
         display: block;
+        padding: 5px;
       }
       
     </style>
   </head>
 
   <body>
-      <div class="box">
-        <input id="circle1" type="checkbox">
-        <label for="circle1"></label>
+    <!--<div class="box">
+      <input id="circle1" type="checkbox">
+      <label id="circle" for="circle1"></label>
+    </div>
+    <div class="box">
+      <input id="circle2" type="checkbox">
+      <label id="opposite-circle" for="circle2"></label>
+    </div>-->
 
     <script>
       //declarative approach
-      /* have function to loop making the circle
-      but it only goes in a row, i want to create 
-      it so that it'll repeat the columns over and over.*/
-      /* how to know how many circles to make to fill the
-      screen instead of using the hardcoded number in 
-      the loop?*/
-      /* with the loop and function, when i click it 
-      expands but only the very top circle, how can
+      
+      /* with the loop and createCircle(), when i click it 
+      expands but only the very first circle, how can
       i make it so that the circle you click on is the
       the that expands? */
-      /* want to make it so that every other circle is
-      opposite rainbow animation */
-      function createCircle() 
-      {
+      /* make new function createPage() that calls createCircle()
+      in a loop to create a row and then loop createPage to fill
+      the whole screen with rows -- how can i create a div
+      and call createCircle() inside that div for createPage()?*/
+      /* when i give an id to the label to alternate the
+      animations, the clicking doesn't work */
+      function createCircle() {
         const circle = document.createElement('div')
-        circle.className = 'box'
+        circle.className = 'row'
         circle.innerHTML = `
+        <div class="box"
             <input id="circle1" type="checkbox">
-            <label for="circle1"></label>
-        `
-        /*const x = Math.random() * window.innerWidth
-        const y = Math.random() * window.innerHeight
-        circle.style.left = `${x}px`
-        circle.style.top = `${y}px`*/
+            <label id="circle" for="circle1"></label>
+        </div>
+        <div class="box"
+            <input id="circle2" type="checkbox">
+            <label id="opposite-circle" for="circle2"></label>
+        </div>`
+
         document.body.appendChild(circle)
       }
       /*function createPage()
       {
         const row = document.createElement('div')
-        row.className = 'rows'
+        row.className = 'screen'
         row = 
-          for (let i = 0; i < 5; i++) 
+          for (let i = 0; i < (window.innerWidth / 100 - 1); i++) 
           {
             createCircle()
           }
         document.body.appendChild(row)
       }*/
-      for (let i = 0; i < 5; i++) 
-      {
+      for (let i = 0; i < (window.innerWidth / 150); i++) {
         createCircle()
       }
-      
-      /* make new function that calls createCircle()
-      with a new div element that is side by side 
-      and loop that new function */
+    /*  for (let i = 0; i < (window.innerHeight / 100 - 1); i++) {
+        createPage()
+      }*/
+
     </script>
   </body>
 
