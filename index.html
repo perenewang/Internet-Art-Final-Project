@@ -98,24 +98,23 @@
         display: inline;
         padding: 10px;
       }
-      
+
       .normal-circle {
         animation-name: rainbow;
         animation-duration: 2s;
         animation-iteration-count: infinite;
       }
-      
+
       .opposite-circle {
         animation-name: opposite-rainbow;
         animation-duration: 2s;
         animation-iteration-count: infinite;
       }
-      
+
       .screen {
         display: block;
         padding: 30px;
       }
-      
     </style>
   </head>
 
@@ -131,17 +130,7 @@
 
     <script>
       //declarative approach
-      
-      /* with the loop and createCircle(), when i click it 
-      expands but only the very first circle, how can
-      i make it so that the circle you click on is the
-      the that expands? */
-      /* make new function createPage() that calls createCircle()
-      in a loop to create a row and then loop createPage to fill
-      the whole screen with rows -- how can i create a div
-      and call createCircle() inside that div for createPage()?*/
-      /* when i give an id to the label to alternate the
-      animations, the clicking doesn't work */
+
       function createCircle(i, type) {
         const circle = document.createElement('div')
         circle.className = 'box'
@@ -151,30 +140,25 @@
         `
         return circle
       }
-      function createPage()
-      {
+
+      function createPage() {
         const row = document.createElement('div')
         row.className = 'screen'
-        for (let i = 0; i < (window.innerWidth / 100 - 1); i++) 
-          {
-            let type
-            if (i % 2 === 0)
-              type = "normal"
-            else
-              type = "opposite"
-            const a = createCircle(i, type)
-            row.appendChild(a)
-          }
+        for (let i = 0; i < (window.innerWidth / 100 - 1); i++) {
+          let type
+          if (i % 2 === 0)
+            type = "normal"
+          else
+            type = "opposite"
+          const a = createCircle(i, type)
+          row.appendChild(a)
+        }
         document.body.appendChild(row)
       }
-      
+
       for (let i = 0; i < (window.innerHeight / 100); i++) {
         createPage()
       }
-    /*  for (let i = 0; i < (window.innerHeight / 100 - 1); i++) {
-        createPage()
-      }*/
-
     </script>
   </body>
 
