@@ -87,9 +87,27 @@
           background-color: fuchsia;
         }
       }
+      
+      @keyframes another-rainbow {
+        0% {
+          background-color: darkturquoise;
+        }
+
+        25% {
+          background-color: deepskyblue;
+        }
+
+        50% {
+          background-color: dodgerblue;
+        }
+
+        100% {
+          background-color: indigo;
+        }
+      }
 
       .box {
-        padding: 30px;
+        padding: 25px;
         opacity: 75%;
         display: inline;
       }
@@ -110,54 +128,53 @@
         animation-duration: 2s;
         animation-iteration-count: infinite;
       }
+      
+      .another-circle {
+        animation-name: another-rainbow;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
 
       .screen {
         display: block;
-        padding: 30px;
+        padding: 25px;
       }
     </style>
   </head>
 
   <body>
-    <!--<div class="box">
-      <input id="circle1" type="checkbox">
-      <label id="circle" for="circle1"></label>
-    </div>
-    <div class="box">
-      <input id="circle2" type="checkbox">
-      <label id="opposite-circle" for="circle2"></label>
-    </div>-->
-
     <script>
       //declarative approach
 
-      function createCircle(i, type) {
+      function createCircle(i, j, type) {
         const circle = document.createElement('div')
         circle.className = 'box'
         circle.innerHTML = `
-            <input id="circle${i}" type="checkbox">
-            <label class="${type}-circle" for="circle${i}"></label>
+            <input id="circle${i}${j}" type="checkbox">
+            <label class="${type}-circle" for="circle${i}${j}"></label>
         `
         return circle
       }
 
-      function createPage() {
+      function createPage(j) {
         const row = document.createElement('div')
         row.className = 'screen'
-        for (let i = 0; i < (window.innerWidth / 100 - 1); i++) {
+        for (let i = 0; i < (window.innerWidth / 85); i++) {
           let type
-          if (i % 2 === 0)
+          if ((i % 2 === 0) && (j % 2 === 0))
             type = "normal"
-          else
+          else if ((i % 2 !== 0) && (j % 2 !== 0))
             type = "opposite"
-          const a = createCircle(i, type)
+          else
+            type = "another"
+          const a = createCircle(i,j,type)
           row.appendChild(a)
         }
         document.body.appendChild(row)
       }
 
-      for (let i = 0; i < (window.innerHeight / 100); i++) {
-        createPage()
+      for (let i = 0; i < (window.innerHeight / 50); i++) {
+        createPage(i)
       }
     </script>
   </body>
